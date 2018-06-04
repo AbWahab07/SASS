@@ -147,7 +147,7 @@ h2 {
 
 /******* End Parent Child Selector ****/
 
-/********* Interpolation ->    #{$font} ******/
+/********* Interpolation ->    ******/
 
 @mixin font-fl($font) {
   &:after {
@@ -168,6 +168,269 @@ h2 {
 }
 
 /******** End Interpolation ****/
+
+/******* Partials ******/
+// it's not possible to nest imports in mixins and control directives
+
+@import 'partials/_reset';
+
+/****** End Partials ********/
+
+
+/******* Mixins ******/
+// Group of CSS declarations that you want to resue for your site
+
+@mixin large-text {
+  font: {
+    family: Arial;
+    size: 20px;
+    weight: bold;
+  }
+  color: #ff0000;
+}
+
+@mixin compound {
+  @include highlighted-background;
+  @include header-text;
+}
+
+@mixin highlighted-background { background-color: #fc0; }
+@mixin header-text { font-size: 20px; }
+
+p {
+  @include large-text;
+}
+
+h6 {
+  @include compound;
+}
+
+// Mixin with Arguements
+@mixin link ($link, $visit, $hover, $active) {
+  a {
+    color: $link;
+
+    &:visited {
+      color: $visit;
+    }
+
+    &:active {
+      color: $active;
+    }
+
+    &:hover {
+      color: $hover;
+    }
+  }
+}
+
+.main {
+  @include link(blue, green, red, orange);
+}
+
+@mixin sexy-border ($color, $width: 1in) {
+  border: {
+    color: $color;
+    width: $width;
+    style: dashed;
+  }
+}
+
+p {
+  @include sexy-border(blue);
+}
+h6 {
+  @include sexy-border (blue, 2in);
+}
+
+p {
+  @include sexy-border ($color: blue);
+}
+h6 {
+  @include sexy-border ($color: blue, $width: 2in);
+}
+
+// Unkown number of Arguments VarArgs
+@mixin box-shadow ($shadows...) {
+  -moz-box-shadow: $shadows;
+  -webkit-box-shadow: $shadows;
+  box-shadow: $shadows;
+}
+.shadows {
+  @include box-shadow(0px 4px 5px #666, 2px 6px 10px #999);
+}
+
+
+/****** End Mixins ******/
+
+
+/****** Inheritance / Extend ********/
+
+.message {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+.success {
+  @extend .message;
+  border-color: green;
+}
+.warning {
+  @extend .message;
+  border-color: yellow;
+}
+.error {
+  @extend .message;
+  border-color: red;
+}
+
+/* Multiple Extends */
+.error {
+  border: 1px #f00;
+  background-color: #fdd;
+}
+.attention {
+  font-size: 3em;
+  background-color: #ff0;
+}
+.seriuosError {
+  @extend .error;
+  @extend .attention;
+  border-width: 3px;
+}
+
+/* Chaining Extends */
+.criticalError {
+  @extend .seriuosError;
+  position: fixed;
+  top: 10%;
+  bottom: 10%;
+  left: 10%;
+  right: 10%;
+}
+
+/****** End Inheritance ********/
+
+/*** Placeholder Classes ***/
+// This will never get compiled into CSS files
+%foo {
+  color: red;
+}
+.bar {
+  @extend %foo;
+  background: blue;
+}
+.baz {
+  @extend %foo;
+  background: yellow;
+}
+
+/*** End Placeholder Classes ***/
+
+/*** DIfference b/w Mixin and Extend ***/
+
+/** Mixin code isn't DRY **/
+/** It's recommended to use Mixin with arguments only**/
+@mixin hide-text {
+  text-indent: -9999px;
+  overflow: hidden;
+}
+.foo {
+  @include hide-text;
+}
+.bar {
+  @include hide-text;
+}
+.baz {
+  @include hide-text;
+}
+/** Placeholder class code is DRY **/
+%hidden-text {
+  text-indent: -9999px;
+  overflow: hidden;
+}
+.foo {
+  @extend %hidden-text;
+}
+.bar {
+  @extend %hidden-text;
+}
+.baz {
+  @extend %hidden-text;
+}
+
+/*** End DIfference b/w Mixin and Extend ***/
+
+/*** Nesting ***/
+/* Useful when you want to avoid the repition of parent selector */
+
+a {
+  font-weight: bold;
+  text-decoration: none;
+  &:hover { text-decoration: none; }
+  body.firefox & { font-weight: normal; }
+}
+
+/* Nested Properties */
+.funky {
+  font: {
+    family: fantasy;
+    size: 3em;
+    weight: bold;
+  }
+}
+/** End Nesting **/
+
+
+/**** Lists ****/
+
+$background-color-list: #4BC2A5 #606F40 #6648CA;
+$border-colors-list: #ff9900 #77ff66 #73C227;
+$colors-list: #111 #222 #333;
+
+// Three comma separated elements
+$font-list: 'Raleway', 'Dosis', 'Lato';
+
+// Three space separated elements
+$pad-list: 10px 8px 12px;
+
+// Multilist with two lists
+$multi-list: 'Roboto', 15px 1.3em;
+
+/* Nth function in lists */
+@each $current-color in $colors-list {
+  $i: index($colors-list, $current-color);
+  .stuff-#{$i} {
+    color: $current-color;
+    background-color: nth($background-color-list, $i);
+    border: 1px solid nth($border-colors-list, $i);
+  }
+}
+h1 {
+  background-color: nth($background-color-list, 3);
+}
+
+/*** End Lists ****/
+
+
+/*** Maps ***/
+// Key/value pairs. Must be in parenthesis. They have to be comma separated.
+// Key and Value can be any Sass object.
+
+$primary-colors: (
+  "red": "#ff0000",
+  "green": "#00ff00",
+  "blue": "#0000ff"
+);
+@each $color-name, $color-code in $primary-colors {
+  .color-#{$color-name} {
+    background-color: $color-code;
+  }
+}
+
+/*** End Maps ***/
+
+
 
 body {
   color: $primary-color;

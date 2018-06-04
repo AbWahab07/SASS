@@ -1,66 +1,282 @@
-/*
-Error: Undefined variable: "$font".
-        on line 150 of app.scss
+/****** Data Types ********/
+/****** End Data Types ********/
+/******* Operators ************/
+h1 {
+  font-size: 16px; }
 
-145:   body.page & { color : white; }
-146: }
-147: 
-148: /******* End Parent Child Selector ****\/
-149: 
-150: /********* Interpolation ->    #{$font} ******\/
-151: 
-152: @mixin font-fl($font) {
-153:   &:after {
-154:     @if (type-of($font) == string) {
-155:       content: ' My font is #{$font}.';
+h2 {
+  font-size: 16px; }
 
-Backtrace:
-app.scss:150
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/script/tree/variable.rb:49:in `_perform'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/script/tree/node.rb:50:in `perform'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/script/tree/interpolation.rb:170:in `_perform'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/script/tree/node.rb:50:in `perform'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:555:in `block in run_interp_no_strip'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:553:in `map'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:553:in `run_interp_no_strip'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:199:in `visit_comment'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/stack.rb:135:in `with_frame'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:162:in `visit'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:52:in `map'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:171:in `block in visit_children'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:170:in `visit_children'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:190:in `visit_root'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:161:in `visit'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:10:in `visit'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/tree/root_node.rb:36:in `css_tree'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/engine.rb:389:in `_render_with_sourcemap'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/engine.rb:307:in `render_with_sourcemap'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/plugin/compiler.rb:462:in `update_stylesheet'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/plugin/compiler.rb:209:in `each'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/plugin/compiler.rb:443:in `on_file_changed'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/plugin/compiler.rb:320:in `block in watch'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/config.rb:23:in `call'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:115:in `_process_changes'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:19:in `block in loop_for'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop_for'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:84:in `_wait_for_changes'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:42:in `block in setup'
-C:/Ruby25-x64/lib/ruby/gems/2.5.0/gems/sass-listen-4.0.0/lib/sass-listen/internals/thread_pool.rb:6:in `block in add'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Undefined variable: \"$font\".\A         on line 150 of app.scss\A \A 145:   body.page & { color : white; }\A 146: }\A 147: \A 148: /******* End Parent Child Selector ****/\A 149: \A 150: /********* Interpolation ->    #{$font} ******/\A 151: \A 152: @mixin font-fl($font) {\A 153:   &:after {\A 154:     @if (type-of($font) == string) {\A 155:       content: ' My font is #{$font}.';"; }
+h3 {
+  font-size: 30;
+  opacity: 0.8;
+  padding-right: 3.5px; }
+
+h4 {
+  width: 20px;
+  width: 30px;
+  width: 12px; }
+
+/* Equality Operator ->    ==, != */
+h2:after {
+  content: " My font is sans-serif."; }
+
+h3:after {
+  content: ' My font is a number.'; }
+
+/* Comparison Operator ->     ==, <=, >=, != */
+h2 {
+  padding: 25px; }
+
+/* Logical Operator ->    and, or */
+h5:after {
+  content: 'Both or One of these is false'; }
+
+/* String Operations */
+h6:after {
+  content: "Your name is: Abdul Wahab"; }
+
+/* Color Operations */
+h1 {
+  color: #66c8ff; }
+
+h2 {
+  color: #ff2b5b; }
+
+/******* End Operators *******/
+/******** Parent Child Selector ->    &   *******/
+.btn:hover {
+  color: white; }
+.btn:visited {
+  color: white; }
+.btn:active {
+  color: white; }
+
+.btn > span {
+  color: white; }
+.btn + span {
+  color: white; }
+.btn ~ span {
+  color: white; }
+
+.btn-primary {
+  color: white; }
+.btn-secondary {
+  color: white; }
+
+body.page .btn {
+  color: white; }
+
+/******* End Parent Child Selector ****/
+/********* Interpolation ->    ******/
+h2:after {
+  content: " My font is sans-serif."; }
+
+/******** End Interpolation ****/
+/******* Partials ******/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: "";
+  content: none; }
+
+q:before, q:after {
+  content: "";
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/****** End Partials ********/
+/******* Mixins ******/
+p {
+  font-family: Arial;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ff0000; }
+
+h6 {
+  background-color: #fc0;
+  font-size: 20px; }
+
+.main a {
+  color: blue; }
+  .main a:visited {
+    color: green; }
+  .main a:active {
+    color: orange; }
+  .main a:hover {
+    color: red; }
+
+p {
+  border-color: blue;
+  border-width: 1in;
+  border-style: dashed; }
+
+h6 {
+  border-color: blue;
+  border-width: 2in;
+  border-style: dashed; }
+
+p {
+  border-color: blue;
+  border-width: 1in;
+  border-style: dashed; }
+
+h6 {
+  border-color: blue;
+  border-width: 2in;
+  border-style: dashed; }
+
+.shadows {
+  -moz-box-shadow: 0px 4px 5px #666, 2px 6px 10px #999;
+  -webkit-box-shadow: 0px 4px 5px #666, 2px 6px 10px #999;
+  box-shadow: 0px 4px 5px #666, 2px 6px 10px #999; }
+
+/****** End Mixins ******/
+/****** Inheritance / Extend ********/
+.message, .success, .warning, .error, .seriuosError, .criticalError {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333; }
+
+.success {
+  border-color: green; }
+
+.warning {
+  border-color: yellow; }
+
+.error, .seriuosError, .criticalError {
+  border-color: red; }
+
+/* Multiple Extends */
+.error, .seriuosError, .criticalError {
+  border: 1px #f00;
+  background-color: #fdd; }
+
+.attention, .seriuosError, .criticalError {
+  font-size: 3em;
+  background-color: #ff0; }
+
+.seriuosError, .criticalError {
+  border-width: 3px; }
+
+/* Chaining Extends */
+.criticalError {
+  position: fixed;
+  top: 10%;
+  bottom: 10%;
+  left: 10%;
+  right: 10%; }
+
+/****** End Inheritance ********/
+/*** Placeholder Classes ***/
+.bar, .baz {
+  color: red; }
+
+.bar {
+  background: blue; }
+
+.baz {
+  background: yellow; }
+
+/*** End Placeholder Classes ***/
+/*** DIfference b/w Mixin and Extend ***/
+/** Mixin code isn't DRY **/
+/** It's recommended to use Mixin with arguments only**/
+.foo {
+  text-indent: -9999px;
+  overflow: hidden; }
+
+.bar {
+  text-indent: -9999px;
+  overflow: hidden; }
+
+.baz {
+  text-indent: -9999px;
+  overflow: hidden; }
+
+/** Placeholder class code is DRY **/
+.foo, .bar, .baz {
+  text-indent: -9999px;
+  overflow: hidden; }
+
+/*** End DIfference b/w Mixin and Extend ***/
+/*** Nesting ***/
+/* Useful when you want to avoid the repition of parent selector */
+a {
+  font-weight: bold;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: none; }
+  body.firefox a {
+    font-weight: normal; }
+
+/* Nested Properties */
+.funky {
+  font-family: fantasy;
+  font-size: 3em;
+  font-weight: bold; }
+
+/** End Nesting **/
+/**** Lists ****/
+/* Nth function in lists */
+.stuff-1 {
+  color: #111;
+  background-color: #4BC2A5;
+  border: 1px solid #ff9900; }
+
+.stuff-2 {
+  color: #222;
+  background-color: #606F40;
+  border: 1px solid #77ff66; }
+
+.stuff-3 {
+  color: #333;
+  background-color: #6648CA;
+  border: 1px solid #73C227; }
+
+h1 {
+  background-color: #6648CA; }
+
+/*** End Lists ****/
+/*** Maps ***/
+.color-red {
+  background-color: "#ff0000"; }
+
+.color-green {
+  background-color: "#00ff00"; }
+
+.color-blue {
+  background-color: "#0000ff"; }
+
+/*** End Maps ***/
+body {
+  color: orange;
+  font-size: 36px;
+  background-color: #0d0d0d; }
+
+body::after {
+  content: "Abdul Wahab";
+  background-color: #556644; }
+
+/*# sourceMappingURL=app.css.map */
